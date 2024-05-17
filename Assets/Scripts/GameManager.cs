@@ -27,4 +27,23 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+
+    public void GetItems()
+    {
+
+    }
+
+    public void GetApples()
+    {
+        List<ItemSO> items = Inventory.Instance.GetInventory();
+        foreach (ItemSO item in items)
+        {
+            item.quantity++;
+        }
+    }
+
+
+
+
 }

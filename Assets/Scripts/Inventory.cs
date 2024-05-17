@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour
     public static Inventory Instance { get; private set; }
 
     [SerializeField] private List<string> inventory = new List<string>();
+    [SerializeField] private List<ItemSO> inventoryItems = new List<ItemSO>();
 
     private void Awake()
     {
@@ -18,9 +19,9 @@ public class Inventory : MonoBehaviour
         Instance = this;
     }
 
-    public List<string> GetInventory()
+    public List<ItemSO> GetInventory()
     {
-        return inventory;
+        return inventoryItems;
     }
 
     public bool IsItemInInventory(string itemName)
@@ -28,10 +29,13 @@ public class Inventory : MonoBehaviour
         return inventory.Contains(itemName);
     }
 
-    public void AddItemToInventory(string itemName)
+    public void AddItemToInventory(ItemSO itemName)
     {
-        inventory.Add(itemName);
+        inventoryItems.Add(itemName);
     }
+
+
+
 
 }
 

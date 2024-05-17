@@ -24,14 +24,26 @@ public class ShowInventory : MonoBehaviour
     
     public void GetShowInventory()
     {
-        foreach (string item in Inventory.Instance.GetInventory())
-        {
+        //foreach (string item in Inventory.Instance.GetInventory())
+        //{
             //if (Inventory.Instance.GetInventory())
 
-            inventoryText.text += item + New_Line;
+            //inventoryText.text += item + New_Line;
 
+        //}
+        foreach(ItemSO item in Inventory.Instance.GetInventory())
+        {
+            if(item.quantity != 0)
+            {
+                inventoryText.text += item.itemName + item.quantity + New_Line;
+            }
+            
         }
+
+
         //inventoryText.text += Inventory.Instance.GetInventory();
     }
+
+
 
 }

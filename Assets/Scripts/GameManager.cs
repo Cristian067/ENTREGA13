@@ -19,13 +19,13 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
@@ -34,13 +34,20 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void GetApples()
+    
+
+    public void GetItems(string itemToGet)
     {
         List<ItemSO> items = Inventory.Instance.GetInventory();
-        foreach (ItemSO item in items)
+        foreach(ItemSO item in items)
         {
-            item.quantity++;
+            if(item.itemName == itemToGet)
+            {
+                item.quantity++;
+            }
         }
+
+        ShowInventory.Instance.RefreshInventory();
     }
 
 
